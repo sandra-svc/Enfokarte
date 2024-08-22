@@ -1,0 +1,206 @@
+[
+{
+  "model": "erp.client",
+  "pk": 1,
+  "fields": {
+    "dni": "9999999999",
+    "names": "Consumidor final",
+    "surnames": "Consumidor final",
+    "address": "Carrera 11",
+    "email": "fff@hotmail.com",
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 2,
+  "fields": {
+    "dni": "8888888888",
+    "names": "Ana Gabriela",
+    "surnames": "Matute Guaman",
+    "address": "carrera 12",
+    "email": "sandra@gmail.com",
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 3,
+  "fields": {
+    "dni": "0928363993",
+    "names": "William Jair",
+    "surnames": "Dávila VArgas",
+    "address": "Ecuador",
+    "email": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 4,
+  "fields": {
+    "dni": "2975545121",
+    "names": "Jose Alberto",
+    "surnames": "Barahona Perez",
+    "address": "Milagro",
+    "email": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 5,
+  "fields": {
+    "dni": "0928631145",
+    "names": "Jose Alberto",
+    "surnames": "Tomala Antuña",
+    "address": "Milagro",
+    "email": "sandra@gmail.com",
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 6,
+  "fields": {
+    "dni": "0239198281",
+    "names": "Jose Alberto ",
+    "surnames": "Perez Torres",
+    "address": "Milagro",
+    "email": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 7,
+  "fields": {
+    "dni": "3432839283",
+    "names": "Jorge Luis",
+    "surnames": "Cabo Antuña",
+    "address": "Milagro",
+    "email": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 8,
+  "fields": {
+    "dni": "3434311111",
+    "names": "pigyuave",
+    "surnames": "pigyuave",
+    "address": "milagro",
+    "email": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 9,
+  "fields": {
+    "dni": "0978454212",
+    "names": "Ana Gabriela",
+    "surnames": "Matute Gumana",
+    "address": "Milagro",
+    "email": "vegacontrerassandrae@gmail.com",
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 10,
+  "fields": {
+    "dni": "1928198291",
+    "names": "Ana Gabriela",
+    "surnames": "Matute Guaman",
+    "address": "Milagro",
+    "email": "fff@hotmail.com",
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 11,
+  "fields": {
+    "dni": "2222332122",
+    "names": "Wendy Marisol",
+    "surnames": "Dávila Vargas",
+    "address": "Milagro",
+    "email": "pepepe@hotmail.com",
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 12,
+  "fields": {
+    "dni": "251521",
+    "names": "pedro",
+    "surnames": "roa",
+    "address": "Calle 11",
+    "email": null,
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 13,
+  "fields": {
+    "dni": "14741474",
+    "names": "paola",
+    "surnames": "kkk",
+    "address": "carrera 12-34",
+    "email": "pepia@gmail.com",
+    "phone_number": "587425141"
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 14,
+  "fields": {
+    "dni": "5555",
+    "names": "lalala",
+    "surnames": "ololo",
+    "address": "lllll",
+    "email": "llll@gmail.com",
+    "phone_number": "ff"
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 15,
+  "fields": {
+    "dni": "555555",
+    "names": "rrrr",
+    "surnames": "ddddd",
+    "address": "bbbrfddddd",
+    "email": "hhh@hotmail.com",
+    "phone_number": null
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 16,
+  "fields": {
+    "dni": "55555555",
+    "names": "polo",
+    "surnames": "popolo",
+    "address": "calle 1",
+    "email": "calle2@hotmail.com",
+    "phone_number": "554515555"
+  }
+},
+{
+  "model": "erp.client",
+  "pk": 17,
+  "fields": {
+    "dni": "83838384",
+    "names": "JUANA",
+    "surnames": "ARCO",
+    "address": "CALLE 101",
+    "email": "jarco@gmail.com",
+    "phone_number": "553322118"
+  }
+}
+]

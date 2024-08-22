@@ -1,0 +1,65 @@
+{% extends 'list.html' %}
+{% load static %}
+{% block head_list %}
+    <script src="{% static 'phase/js/list.js' %}"></script>
+{% endblock %}
+
+{% block columns %}
+    <tr>
+        <th scope="col">Nro</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">F. Entrega</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Categoría</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Última Fase</th>
+        <th scope="col" class="observacion">Observación</th>
+        <th scope="col">Responsable</th>
+        <th scope="col">Opciones</th>
+    </tr>
+{% endblock %}
+
+{% block rows %}
+{% endblock %}
+
+
+{% block javascript %}
+<a rel="details" class="btn btn-success btn-xs btn-flat">
+    <i class="fas fa-search"></i>
+</a>
+
+<!-- Modal para mostrar los detalles -->
+<div class="modal fade" id="myModelDet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detalles del Proceso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="tblDet" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Fecha de Cambio</th>
+                            <th>Fase</th>
+                            <th>Status</th>
+                            <th>Asignado A:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Content populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    {% endblock %}    
+  

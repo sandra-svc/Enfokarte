@@ -1,0 +1,163 @@
+{% extends 'list.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block head_list %}
+    <!-- Incluir CSS de UIkit y estilos adicionales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.21/css/uikit.min.css" />
+    <style>
+        .uk-modal-title {
+            font-weight: bold;
+            font-size: 1.5em; /* Tamaño del título */
+        }
+        
+    </style>
+    <!-- Incluir scripts necesarios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.21/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.21/js/uikit-icons.min.js"></script>
+    <!-- Incluir tu script form.js -->
+    <script src="{% static 'phase/js/form.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fa-plus"></i>
+            Creación y Control de Avance
+        </h3>
+    </div>
+
+    <form method="post" id="phase-form" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalProgresoLabel">Nuevo registro de fase</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="det_sale">Producto:</label>
+                        <select id="det_sale" name="det_sale" class="form-control" required>
+                            <option value="{{ det_sale.id }}" selected>{{ det_sale.prod.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Fecha del Cambio:</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phase">Estado del Producto:</label>
+                        <select class="form-control" id="phase" name="phase" required>
+                            <option value="Alistamiento">Alistamiento</option>
+                            <option value="Seleccion">Seleccion</option>
+                            <option value="Proceso">Proceso</option>
+                            <option value="Revisión">Revisión</option>
+                            <option value="Terminado">Terminado</option>
+                            <option value="Entregado">Entregado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Observación:</label>
+                        <textarea id="status" name="status" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="user">Asignar a Usuario:</label>
+                        {{ form.user }}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">
+                        <i class="fas fa-save"></i> Guardar Fase
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="text-center mt-4">
+        <a href="{% url 'erp:phase_list' %}" class="btn btn-secondary">Finalizar y volver a la lista de procesos</a>
+    </div>
+</div>
+
+<!-- Modal de notificación -->
+<div id="notification-modal" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Notificación</h2>
+        <p>¿Estás seguro de realizar la siguiente acción?</p>
+        <div class="uk-modal-footer uk-text-right">
+            <button id="confirm-button" class="uk-button uk-button-primary uk-text-bold" type="button" style="font-size: 14px;">Sí</button>
+            <button class="uk-button uk-button-default uk-modal-close uk-text-bold" type="button" style="font-size: 14px; color: white; background-color: red;">No</button>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var formSubmitted = false;
+
+        // Mostrar modal de notificación al enviar el formulario
+        $('#phase-form').submit(function(event) {
+            if (!formSubmitted) {
+                event.preventDefault();
+                UIkit.modal('#notification-modal').show();
+            }
+        });
+
+        // Acción al hacer clic en el botón Sí del modal
+        $('#confirm-button').click(function() {
+            if (!formSubmitted) {
+                formSubmitted = true; // Marcar que el formulario ha sido enviado
+
+                // Enviar formulario usando AJAX
+                $.ajax({
+                    type: "POST",
+                    url: $('#phase-form').attr('action'),
+                    data: $('#phase-form').serialize(),
+                    success: function(data) {
+                        if (data.status === 'success') {
+                            // Mostrar notificación de éxito
+                            UIkit.notification({
+                                message: 'Fase creada correctamente',
+                                status: 'success',
+                                pos: 'top-center',
+                                timeout: 500
+                            });
+
+                            // Recargar la página después de 3 segundos
+                            setTimeout(function() {
+                                location.reload();
+                            }, 600);
+                        } else {
+                            // Mostrar mensaje de error si es necesario
+                            UIkit.notification({
+                                message: 'Hubo un error al procesar la solicitud',
+                                status: 'danger',
+                                pos: 'top-center',
+                                timeout: 500
+                            });
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Mostrar mensaje de error genérico
+                        UIkit.notification({
+                            message: 'Hubo un error al procesar la solicitud',
+                            status: 'danger',
+                            pos: 'top-center',
+                            timeout: 500
+                        });
+                    }
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}
+
+
+
+
+
+

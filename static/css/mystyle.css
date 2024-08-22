@@ -1,0 +1,85 @@
+.table-bordered {
+    border: 0 !important;
+}
+
+.table-bordered > thead > tr > th {
+    border: 0 !important;
+    border-bottom: solid 1px #343a40 !important;
+}
+
+table.table-bordered.dataTable tbody td {
+    border-bottom-width: 1px !important;
+}
+
+.table-bordered > tbody > tr > td {
+    border: 0 !important;
+    border-bottom: 1px solid #cccccc !important;
+}
+
+.table-md th, .table-md td {
+    padding: 0.55rem;
+    font-size: 14px;
+}
+
+.card-footer {
+    border-top: 1px solid #dee2e6;
+}
+
+.btn {
+    color: white !important;
+}
+
+td.details-control {
+    background: url('../lib/datatables-1.10.20/images/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+
+tr.shown td.details-control {
+    background: url('../lib/datatables-1.10.20/images/details_close.png') no-repeat center center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Autoajusta las celdas */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th.center, td.center {
+    text-align: center;
+}
+
+td.quantity-column {
+    text-align: center; /* Centra el contenido de la columna de cantidad */
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+th.observacion, td.observacion {
+    max-width: 150px; /* Puedes ajustar este valor según tus necesidades */
+    word-wrap: break-word; /* O también puedes usar: word-break: break-all; */
+  }
+
+h1 {
+    font-size: 18px; /* Ajusta el tamaño a tu preferencia */
+}
+/* styles.css */
+.checkbox-service {
+    margin-left: 100px;
+    width: 2.5em;
+    height: 2.5em;
+  }
