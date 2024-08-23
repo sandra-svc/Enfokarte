@@ -26,7 +26,7 @@ SECRET_KEY = 'fd&a%**+le-74cq&mrlh^a0yp95!n5vf-q5u3+5f*9=6at1c2^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['enfokarte.onrender.com']
+ALLOWED_HOSTS = ['svc58.pythonanywhere.com']
 
 # Application definition
 
@@ -86,13 +86,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Enfokarte',
-        'USER': 'postgres',
-        'PASSWORD': 'david8',
-        'HOST': 'localhost',  # O la IP del servidor PostgreSQL
-        'PORT': '5432',       # El puerto predeterminado de PostgreSQL
+        'NAME': os.getenv('DB_NAME', 'Enfokarte'),
+        'USER': os.getenv('DB_USER', 'postgres'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'david8'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
+
 
 
 # Password validation
@@ -118,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'  # Ajustado para Colombia
 
 USE_I18N = True
 
@@ -133,7 +134,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
@@ -152,16 +153,16 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'user.User'
 
 # Email
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = os.getenv('EMAIL_PORT', 587)
 
-EMAIL_PORT = 587
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'djangologin99@gmail.com')
 
-EMAIL_HOST_USER = 'djangologin99@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '0m4gATi3rr@')
 
-EMAIL_HOST_PASSWORD = '0m4gATi3rr@'
+EMAIL_USE_TLS = True
 
-DOMAIN = ''
 
 # settings.py
 
