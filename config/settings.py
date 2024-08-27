@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'enfokarte_db',
         'USER': 'enfokarte_user',
-        'PASSWORD': 'david8',
+        'PASSWORD': 'Yt2mYbs8KOrWjn8wfgj4gy2IFCAehjSW',
         'HOST': 'dpg-cr73373v2p9s73bqger0-a',
         'PORT': '5432',
     }
