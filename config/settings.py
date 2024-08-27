@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fd&a%**+le-74cq&mrlh^a0yp95!n5vf-q5u3+5f*9=6at1c2^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['svc58.pythonanywhere.com']
+ALLOWED_HOSTS = ['enfokarte.onrender.com']
 
 # Application definition
 
@@ -82,19 +82,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME', 'Enfokarte'),
-        'USER': os.getenv('DB_USER', 'postgres'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'david8'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '5432'),
+        'NAME': 'Enfokarte',
+        'USER': 'postgres',
+        'PASSWORD': 'david8',
+        'HOST': 'localhost',  # O la IP del servidor PostgreSQL
+        'PORT': '5432',       # El puerto predeterminado de PostgreSQL
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -119,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'America/Bogota'  # Ajustado para Colombia
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -146,23 +143,23 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 LOGIN_URL = '/login/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'user.User'
 
 # Email
-EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
 
-EMAIL_PORT = os.getenv('EMAIL_PORT', 587)
+EMAIL_HOST = 'smtp.gmail.com'
 
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'djangologin99@gmail.com')
+EMAIL_PORT = 587
 
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '0m4gATi3rr@')
+EMAIL_HOST_USER = 'djangologin99@gmail.com'
 
-EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = '0m4gATi3rr@'
 
+DOMAIN = ''
 
 # settings.py
 
@@ -172,7 +169,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Asegúrate de usar la configuración correcta
+
+
+
+
+
+
+
 
 
 
