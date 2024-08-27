@@ -85,13 +85,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Enfokarte',
-        'USER': 'postgres',
+        'NAME': 'enfokarte_db',
+        'USER': 'enfokarte_user',
         'PASSWORD': 'david8',
-        'HOST': 'localhost',  # O la IP del servidor PostgreSQL
-        'PORT': '5432',       # El puerto predeterminado de PostgreSQL
+        'HOST': 'dpg-cr73373v2p9s73bqger0-a',
+        'PORT': '5432',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
