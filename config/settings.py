@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 database_url = os.environ.get("DATABASE_URL")
 
 DATABASES = {
-    'default': dj_database_url.parse(database_url)
+    'default': dj_database_url.parse(database_url)}
     
     
 # postgresql://enfokarte_postgresql_user:8FaALFLCglkmn58wMJSYSnPW3bKKjIlI@dpg-cr7kucqj1k6c739upki0-a.oregon-postgres.render.com/enfokarte_postgresql
