@@ -11,15 +11,14 @@ SQLITE = {
 
 # psycopg2
 
-POSTGRESQL = {
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db',
-        'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'enfokarte_db',
+        'USER': 'enfokarte_user',
+        'PASSWORD': 'Yt2mYbs8KOrWjn8wfgj4gy2IFCAehjSW',
+        'HOST': 'dpg-cr73373v2p9s73bqger0-a',
         'PORT': '5432',
-        'ATOMIC_REQUESTS': True
     }
 }
 

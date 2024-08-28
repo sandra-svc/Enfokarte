@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 import config.db as db
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,13 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fd&a%**+le-74cq&mrlh^a0yp95!n5vf-q5u3+5f*9=6at1c2^'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False').lowe() == 'true'
 
-ALLOWED_HOSTS = ['enfokarte.onrender.com']
-
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split("")
 # Application definition
 
 INSTALLED_APPS = [
@@ -83,15 +83,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'enfokarte_db',
-        'USER': 'enfokarte_user',
-        'PASSWORD': 'Yt2mYbs8KOrWjn8wfgj4gy2IFCAehjSW',
-        'HOST': 'dpg-cr73373v2p9s73bqger0-a',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.parse('postgresql://enfokarte_postgresql_user:8FaALFLCglkmn58wMJSYSnPW3bKKjIlI@dpg-cr7kucqj1k6c739upki0-a.oregon-postgres.render.com/enfokarte_postgresql')
 }
+
+# postgresql://enfokarte_postgresql_user:8FaALFLCglkmn58wMJSYSnPW3bKKjIlI@dpg-cr7kucqj1k6c739upki0-a.oregon-postgres.render.com/enfokarte_postgresql
 
 
 # Password validation
